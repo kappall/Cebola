@@ -1,15 +1,15 @@
-flags=-O2 -Wall -std=c2x
-ldflags=-lbu
+flags=-O2 -Wall -std=c23
+CC = /opt/homebrew/bin/gcc-14
 
 .PHONY: all clean
 
 all: clean Cebola
 
 Cebola: Cebola.o
-	cc $(flags) $^ -o $@ $(ldflags)
+	$(CC) $(flags) $^ -o $@ $
 
 Cebola.o: Cebola.c Cebola.h
-	cc $(flags) -c $<
+	$(CC) $(flags) -c $<
 
 clean:
 	rm -f *.o Cebola
