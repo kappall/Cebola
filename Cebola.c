@@ -97,6 +97,7 @@ bool is_executable_file_mac(Entry e) {
     fclose(fp);
     if (read_bytes < sizeof(header))
         return false;
+    printf("scanning: %s: %u\n",filepath,header);
     if (header == MH_MAGIC || header == MH_MAGIC_64 || header == FAT_MAGIC ||
         header == MH_CIGAM || header == MH_CIGAM_64 || header == FAT_CIGAM)
         return true;
